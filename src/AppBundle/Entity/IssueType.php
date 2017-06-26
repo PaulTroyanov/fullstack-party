@@ -22,13 +22,13 @@ class IssueType
      * @ORM\ManyToOne(targetEntity="Type", inversedBy="issue_types")
      * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      */
-    private $typeId;
+    private $type;
 
     /**
      * @ORM\ManyToOne(targetEntity="Issue", inversedBy="issue_types")
      * @ORM\JoinColumn(name="issue_id", referencedColumnName="id")
      */
-    private $issueId;
+    private $issue;
 
     /**
      * Get id
@@ -41,50 +41,50 @@ class IssueType
     }
 
     /**
-     * Set typeId
+     * Set type
      *
-     * @param $typeId
+     * @param \AppBundle\Entity\Type $type
      *
      * @return IssueType
      */
-    public function setTypeId($typeId)
+    public function setType(\AppBundle\Entity\Type $type = null)
     {
-        $this->typeId = $typeId;
+        $this->type = $type;
 
         return $this;
     }
 
     /**
-     * Get typeId
+     * Get type
      *
      * @return \AppBundle\Entity\Type
      */
-    public function getTypeId()
+    public function getType()
     {
-        return $this->typeId;
+        return $this->type;
     }
 
     /**
-     * Set issueId
+     * Set issue
      *
-     * @param $issueId
+     * @param \AppBundle\Entity\Issue $issue
      *
      * @return IssueType
      */
-    public function setIssueId($issueId)
+    public function setIssue(\AppBundle\Entity\Issue $issue = null)
     {
-        $this->issueId = $issueId;
+        $this->issue = $issue;
 
         return $this;
     }
 
     /**
-     * Get issueId
+     * Get issue
      *
      * @return \AppBundle\Entity\Issue
      */
-    public function getIssueId()
+    public function getIssue()
     {
-        return $this->issueId;
+        return $this->issue;
     }
 }

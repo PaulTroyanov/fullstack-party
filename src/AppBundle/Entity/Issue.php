@@ -31,13 +31,13 @@ class Issue
      * @ORM\ManyToOne(targetEntity="User", inversedBy="issues")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $userId;
+    private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="Status", inversedBy="issues")
      * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      */
-    private $statusId;
+    private $status;
 
     /**
      * @ORM\Column(type="datetime")
@@ -103,54 +103,6 @@ class Issue
     }
 
     /**
-     * Set userId
-     *
-     * @param $userId
-     *
-     * @return Issue
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return \AppBundle\Entity\User
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
-    /**
-     * Set statusId
-     *
-     * @param $statusId
-     *
-     * @return Issue
-     */
-    public function setStatusId($statusId = 1)
-    {
-        $this->statusId = $statusId;
-
-        return $this;
-    }
-
-    /**
-     * Get statusId
-     *
-     * @return \AppBundle\Entity\Status
-     */
-    public function getStatusId()
-    {
-        return $this->statusId;
-    }
-
-    /**
      * Set dateAdded
      *
      * @param \DateTime $dateAdded
@@ -172,5 +124,53 @@ class Issue
     public function getDateAdded()
     {
         return $this->date_added;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Issue
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set status
+     *
+     * @param \AppBundle\Entity\Status $status
+     *
+     * @return Issue
+     */
+    public function setStatus(\AppBundle\Entity\Status $status = null)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return \AppBundle\Entity\Status
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

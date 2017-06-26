@@ -22,7 +22,6 @@ class Type
      */
     private $name;
 
-
     /**
      * Get id
      *

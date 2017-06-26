@@ -7,20 +7,25 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class DefaultController extends AbstractController
 {
+    public function loginAction()
+    {
+
+    }
+
     /**
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request, EntityManagerInterface $em)
     {
-        $issues = [];
         $issues = $em->getRepository('AppBundle:Issue')->findAll();
-        foreach ($issues as $issue) {
-            echo "Issue text:" . $issue->getText();
-            $user = $em->getRepository('AppBundle:User')->find($issue->getId());
-            echo "User leaves the comment:" . $user->getName();
-        }
+//        foreach ($issues as $issue) {
+//            echo "Issue text:" . $issue->getText();
+//            $user = $em->getRepository('AppBundle:User')->find($issue->getId());
+//            echo "User leaves the comment:" . $user->getName();
+//        }
 //        //$entityManager = $this->getEntityManager();
 //        try {
 //            $this->getDoctrine()->getConnection()->connect();
@@ -30,7 +35,7 @@ class DefaultController extends AbstractController
 //            echo "fail";
 //        }
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', []);
+        return $this->render('default/index.html.twig', ['issues' => $issues]);
     }
 
     /**
@@ -44,6 +49,8 @@ class DefaultController extends AbstractController
     public function showIssueAction($issueId, EntityManagerInterface $em)
     {
         $issue = $em->getRepository('AppBundle:Issue')->find($issueId);
+        //$comments = $em->getRepository('AppBundle:Comment')->findAll();
+
         return $this->render('issue/issue.html.twig', ['issue' => $issue]);
     }
 }

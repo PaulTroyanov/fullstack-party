@@ -26,18 +26,19 @@ class Comment
      * @ORM\ManyToOne(targetEntity="User", inversedBy="issues")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $userId;
+    private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="Issue", inversedBy="comments")
      * @ORM\JoinColumn(name="issue_id", referencedColumnName="id")
      */
-    private $issueId;
+    private $issue;
 
     /**
      * @ORM\Column(type="datetime")
      */
     private $date_added;
+
 
     /**
      * Get id
@@ -74,54 +75,6 @@ class Comment
     }
 
     /**
-     * Set userId
-     *
-     * @param $userId
-     *
-     * @return Comment
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return \AppBundle\Entity\User
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
-    /**
-     * Set issueId
-     *
-     * @param $issueId
-     *
-     * @return Comment
-     */
-    public function setIssueId($issueId)
-    {
-        $this->issueId = $issueId;
-
-        return $this;
-    }
-
-    /**
-     * Get issueId
-     *
-     * @return \AppBundle\Entity\Issue
-     */
-    public function getIssueId()
-    {
-        return $this->issueId;
-    }
-
-    /**
      * Set dateAdded
      *
      * @param \DateTime $dateAdded
@@ -143,5 +96,53 @@ class Comment
     public function getDateAdded()
     {
         return $this->date_added;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Comment
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set issue
+     *
+     * @param \AppBundle\Entity\Issue $issue
+     *
+     * @return Comment
+     */
+    public function setIssue(\AppBundle\Entity\Issue $issue = null)
+    {
+        $this->issue = $issue;
+
+        return $this;
+    }
+
+    /**
+     * Get issue
+     *
+     * @return \AppBundle\Entity\Issue
+     */
+    public function getIssue()
+    {
+        return $this->issue;
     }
 }
