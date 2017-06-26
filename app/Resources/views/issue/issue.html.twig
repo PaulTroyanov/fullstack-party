@@ -1,9 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <div id="wrapper">
-        <div id="container">
-        {{ issue.getText() }}
+{% block content %}
+    <div class="issue-content">
+        <div class="back-button">
+            <a href="/issues">← Back to Issues</a>
+        </div>
+
+        <div class="issue-block">
+
+            <div class="issue-title">
+                <span class="issue-text">{{ issue.getText() }}</span> <span class="issue-number"> #{{ issue.getId() }}</span>
+            </div>
+
+            <div class="issue-status">
+                <span>{{ issue.getStatus().getName() }}</span>
+            </div>
+
+            <div class="issue-contributor">
+                <a href="#">{{ issue.getUser().getName() }}</a>
+                <span class="issue-date">opened this issue long time ago • {{ comments|length }} comment</span>
+            </div>
+
+        </div>
+
+        <div class="comments">
+        {% for comment in comments %}
+            <div class="comment">
+                <div class="comment-contributor">
+                    <a href="#">{{ comment.getUser().getName() }}</a>
+                    <span class="comment-date">commented long time ago</span>
+                </div>
+                <div class="comment-text">
+                    {{ comment.getText() }}
+                </div>
+            </div>
+        {% endfor %}
         </div>
     </div>
 {% endblock %}

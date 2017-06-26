@@ -16,7 +16,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/", name="homepage")
+     * @Route("/issues", name="issues")
      */
     public function indexAction(Request $request, EntityManagerInterface $em)
     {
@@ -49,8 +49,8 @@ class DefaultController extends AbstractController
     public function showIssueAction($issueId, EntityManagerInterface $em)
     {
         $issue = $em->getRepository('AppBundle:Issue')->find($issueId);
-        //$comments = $em->getRepository('AppBundle:Comment')->findAll();
+        $comments = $em->getRepository('AppBundle:Comment')->findBy(['issue' => $issue->getId()]);
 
-        return $this->render('issue/issue.html.twig', ['issue' => $issue]);
+        return $this->render('issue/issue.html.twig', ['issue' => $issue, 'comments' => $comments]);
     }
 }

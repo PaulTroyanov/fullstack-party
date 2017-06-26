@@ -1,0 +1,58 @@
+
+.issue-content {
+    width: 80%;
+    height: 100%;
+    padding: 3% 10% 0 10%;
+}
+
+.issue-content a {
+    font-size: 80%;
+    text-decoration: none;
+    color: #92B841;
+}
+
+.issue-content a:hover {
+    text-decoration: underline;
+}
+
+.issue-content .issue-block {
+    margin-top: 2%;
+    padding: 3% 3% 2.5% 3%;
+    background-color: #ffffff;
+    border: 1px solid #e3e3e3;
+    border-radius: 10px;
+}
+
+.issue-content .issue-title {
+    display: block;
+    padding-bottom: 2%;
+}
+
+.issue-title .issue-text {
+    color: #303030;
+}
+
+.issue-title .issue-number {
+    color: #989898
+}
+
+.issue-content .issue-status {
+    margin-right: 1%;
+    display: inline;
+    padding: 0.5%;
+    margin-top: 1%;
+    width: 4%;
+    color: #ffffff;
+    border-radius: 3px;
+    background-color: #A1D535;
+}
+
+.issue-content .issue-contributor {
+    display: inline;
+}
+
+.issue-contributor .issue-date {
+    color: #989898;
+    font-size: 80%;
+}
+
