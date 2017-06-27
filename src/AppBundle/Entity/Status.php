@@ -5,6 +5,9 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * This entity represent statuses of our issue
+ * For now there is only two statuses: open and closed
+ *
  * @ORM\Entity
  * @ORM\Table(name="status")
  */

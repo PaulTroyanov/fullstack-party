@@ -5,6 +5,9 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * This class is represent our main entity
+ * Issue is bounded with users, statuses and comments
+ *
  * @ORM\Entity
  * @ORM\Table(name="issue")
  */
@@ -28,13 +31,13 @@ class Issue
     private $text;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="issues")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Status", inversedBy="issues")
+     * @ORM\ManyToOne(targetEntity="Status")
      * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      */
     private $status;
@@ -172,5 +175,13 @@ class Issue
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * @PrePersist
+     */
+    public function onPrePersistSetRegistrationDate()
+    {
+        $this->date_added = new \DateTime();
     }
 }

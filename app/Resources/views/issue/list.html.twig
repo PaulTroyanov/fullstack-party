@@ -4,16 +4,19 @@
     <div class="issue-list">
         <div class="issue-statistic">
             <div class="open-issues">
-                <div class="warning"></div> <span>420 Open</span>
+                <div class="warning"></div> <span>{{ openIssues|length }} Open</span>
             </div>
             <div class="closed-issues">
-                <div class="done"></div> 1670 Closed
+                <div class="done"></div> {{ closedIssues|length }} Closed
             </div>
         </div>
         {% for issue in issues %}
             <div class="issue-block">
                 <div class="issue-title">
                     <h3><a href="issue/{{ issue.getId() }}">{{ issue.getTitle() }}</a></h3>
+                    {% for type in issueTypes[issue.getId()] %}
+                        <div class="type">{{ type }}</div>
+                    {% endfor %}
                     <span class="issue-text">{{ issue.getText() }}</span>
                 </div>
 

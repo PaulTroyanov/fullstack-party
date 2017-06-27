@@ -5,6 +5,9 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * This class is represent comment entity
+ * Comment is bounded with Issue entity with foreign key
+ *
  * @ORM\Entity
  * @ORM\Table(name="comment")
  */
@@ -23,13 +26,13 @@ class Comment
     private $text;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="issues")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Issue", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="Issue")
      * @ORM\JoinColumn(name="issue_id", referencedColumnName="id")
      */
     private $issue;
@@ -144,5 +147,13 @@ class Comment
     public function getIssue()
     {
         return $this->issue;
+    }
+
+    /**
+     * @PrePersist
+     */
+    public function onPrePersistSetRegistrationDate()
+    {
+        $this->date_added = new \DateTime();
     }
 }

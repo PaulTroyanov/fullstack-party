@@ -5,6 +5,9 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * This entite represent type of our issue
+ * ex. "Deprecated", "Bug" etc.
+ *
  * @ORM\Entity
  * @ORM\Table(name="type")
  */

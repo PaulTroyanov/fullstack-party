@@ -6,6 +6,9 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * This entity represents table with ManyToMany connection
+ * of issues and its types
+ *
  * @ORM\Entity
  * @ORM\Table(name="issue_type")
  */
@@ -19,13 +22,13 @@ class IssueType
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Type", inversedBy="issue_types")
+     * @ORM\ManyToOne(targetEntity="Type")
      * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      */
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Issue", inversedBy="issue_types")
+     * @ORM\ManyToOne(targetEntity="Issue")
      * @ORM\JoinColumn(name="issue_id", referencedColumnName="id")
      */
     private $issue;
