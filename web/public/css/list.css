@@ -1,0 +1,81 @@
+.background-issue-list {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-image: url("assets/background-list.png");
+    filter: brightness(40%);
+}
+
+.issue-list {
+    position: absolute;
+    width:50%;
+    height: 100%;
+    background-color: #F5F5F5;
+    z-index: 1;
+}
+
+.issue-list .issue-block {
+    margin: 2%;
+    padding: 1% 3% 2.5% 5%;
+    background-color: #ffffff;
+    border: 1px solid #e3e3e3;
+    border-radius: 10px;
+}
+
+.issue-block .issue-title {
+    display: block;
+    padding-bottom: 2%;
+}
+
+.issue-title .issue-text {
+    color: #303030;
+}
+
+.issue-block .issue-date a {
+    text-decoration: none;
+    color: #92B841;
+}
+
+.issue-block .issue-date a:hover {
+    text-decoration: underline;
+}
+
+.issue-block .issue-title a {
+    color: #303030;
+    text-decoration: none;
+}
+
+.issue-block .issue-title a:hover {
+    text-decoration: underline;
+}
+
+.issue-statistic {
+    margin-top: 2%;
+    text-align: center;
+}
+
+.issue-statistic .open-issues {
+    display: inline-block;
+    width: 18%;
+}
+
+.issue-statistic .warning {
+    display: inline-block;
+    width: 12%;
+    content: url("assets/warning.png");
+}
+
+.issue-statistic .closed-issues {
+    display: inline-block;
+    color: #7D858F;
+    width: 18%;
+}
+
+.issue-statistic .done {
+    display: inline-block;
+    width: 12%;
+    content: url("assets/done.png");
+}
+
+

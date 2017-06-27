@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class DefaultController extends AbstractController
+class IssueController extends AbstractController
 {
     public function loginAction()
     {
@@ -18,24 +18,11 @@ class DefaultController extends AbstractController
     /**
      * @Route("/issues", name="issues")
      */
-    public function indexAction(Request $request, EntityManagerInterface $em)
+    public function listAction(Request $request, EntityManagerInterface $em)
     {
         $issues = $em->getRepository('AppBundle:Issue')->findAll();
-//        foreach ($issues as $issue) {
-//            echo "Issue text:" . $issue->getText();
-//            $user = $em->getRepository('AppBundle:User')->find($issue->getId());
-//            echo "User leaves the comment:" . $user->getName();
-//        }
-//        //$entityManager = $this->getEntityManager();
-//        try {
-//            $this->getDoctrine()->getConnection()->connect();
-//            $cnx = $this->getDoctrine()->getManager();
-//
-//        } catch (\Exception $e) {
-//            echo "fail";
-//        }
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', ['issues' => $issues]);
+
+        return $this->render('issue/list.html.twig', ['issues' => $issues]);
     }
 
     /**
